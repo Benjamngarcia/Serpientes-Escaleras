@@ -1,13 +1,14 @@
 const express = require("express");
+const path = require('path');
 const socket = require("socket.io");
 const http = require("http");
 
 const app = express();
-app.set('port', process.env.PORT || 5000);
 const server = http.createServer(app);
+const io = socket(server); //SOCKET
 
-app.use(express.static("public")); //Archivos estáticos
-const io = socket(server); //Socket
+app.set('port', process.env.PORT || 5000);
+app.use(express.static(path.join(__dirname, 'public'))); //Archivos estáticos
 let users = []; //Array de jugadores
 
 io.on("connection", (socket) => {
@@ -34,6 +35,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server && app.listen(app.get('port'), () => {
+server.listen(app.get('port'), () => {
   console.log(`Servidor en el puerto ${app.get('port')}`);
 });
