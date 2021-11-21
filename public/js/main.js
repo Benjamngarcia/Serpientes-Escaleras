@@ -1,5 +1,5 @@
 // Making Connection
-const socket = io.connect("http://localhost:3000");
+const socket = io.connect("https://serpientesyescaleras.herokuapp.com/");
 socket.emit("joined");
 
 let players = []; // Jugadores en el juego

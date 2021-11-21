@@ -3,7 +3,7 @@ const socket = require("socket.io");
 const http = require("http");
 
 const app = express();
-const PORT = 3000 || process.env.PORT;
+app.set('port', process.env.PORT || 5000);
 const server = http.createServer(app);
 
 app.use(express.static("public")); //Archivos estáticos
@@ -34,6 +34,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(PORT, () => 
-  console.log(`Servidor en el puerto ${PORT}`)
-);
+app.listen(app.get('port'), () => {
+  console.log(`Servidor en el puerto ${app.get('port')}`);
+});
