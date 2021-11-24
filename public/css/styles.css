@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body{
+  background-color: #60aacc;
+}
+
 .board {
   position: absolute;
   transform: translate(-15%, 0);
@@ -49,47 +53,55 @@
 
 #roll-button {
   position: absolute;
+  top: 10%;
   left: 3%;
-  bottom: 10%;
 }
 .turno{
   position: absolute;
-  left: 20%;
-  bottom: 13%;
+  left: 28%;
+  top: 13%;
   font-size: 150%;
+  background-color: #008f39;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: .5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 .form-input {
-  font-family: "Roboto", sans-serif;
   font-size: 1rem;
-  padding: 1.5rem 2rem;
+  padding: 1rem;
   position: absolute;
-  top: 10%;
-  left: 4%;
-  background-color: rgba(240, 233, 233, 0.473);
+  top: 25%;
+  left: 25%;
   border: none;
-  width: 20%;
+  width: 50%;
   display: block;
 }
 
 #start-btn {
   position: absolute;
-  top: 25%;
-  left: 9%;
+  top: 40%;
+  left: 43%;
   font-size: 1rem;
 }
 
 #players-box {
   position: absolute;
-  top: 35%;
+  top: 25%;
   left: 3%;
   color: azure;
   font-size: 1.6rem;
   font-family: "Roboto Slab", sans-serif;
+  text-align: center;
 }
 
 #current-player {
   position: absolute;
-  bottom: 35%;
+  bottom: 50%;
   left: 3%;
   color: azure;
   font-size: 1.4rem;
@@ -99,8 +111,8 @@
 
 #restart-btn {
   position: absolute;
-  left: 3%;
-  bottom: 10%;
+  top: 5%;
+  left: 2%;
 }
 
 #players-table img {

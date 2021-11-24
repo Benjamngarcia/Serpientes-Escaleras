@@ -1,5 +1,6 @@
 // Making Connection
 const socket = io.connect("https://serpientesyescaleras.herokuapp.com/");
+// const socket = io.connect("http://localhost:5000/");
 socket.emit("joined");
 
 let players = []; // Jugadores en el juego
@@ -14,12 +15,13 @@ const piezaRoja = "../img/pieza_roja.png";
 const piezaAzul = "../img/pieza_azul.png";
 const piezaAmarilla = "../img/pieza_amarilla.png";
 const piezaNegra = "../img/pieza_negra.png";
+const piezaRosa = "../img/pieza_rosa.png";
 
 const side = canvas.width / 10;
 const offsetX = side / 2;
 const offsetY = side / 2 + 20;
 
-const images = [piezaRoja, piezaAzul, piezaAmarilla, piezaNegra];
+const images = [piezaRoja, piezaAzul, piezaAmarilla, piezaNegra, piezaRosa];
 
 const ladders = [
   [2, 38],
@@ -98,9 +100,13 @@ class Player {
 
 document.getElementById("start-btn").addEventListener("click", () => {
   const name = document.getElementById("name").value;
-  document.getElementById("name").disabled = true;
+  document.getElementById("name").hidden = true;
   document.getElementById("start-btn").hidden = true;
+  document.getElementById("board-img").hidden = false;
+  document.getElementById("container-board").hidden = false;
   document.getElementById("roll-button").hidden = false;
+  document.getElementById("turno_jugador").hidden = false;
+  document.getElementById("texto-conectados").hidden = false;
   currentPlayer = new Player(players.length, name, 0, images[players.length]);
   document.getElementById("current-player").innerHTML = `<p></p>`;
   socket.emit("join", currentPlayer);
@@ -152,7 +158,7 @@ socket.on("joined", (data) => {
 socket.on("rollDice", (data, turn) => {
   players[data.id].updatePos(data.num);
   drawPins();
-  document.getElementById("turno_jugador").innerHTML = `<p>Avanzas: ${data.num}</p>`;
+  document.getElementById("turno_jugador").innerHTML = `<p>${data.num}</p>`;
 
 
   if (turn != currentPlayer.id) {

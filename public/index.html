@@ -8,29 +8,30 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body class="bg-dark text-white">
-    <div class="board"></div>
+  <body>
+    <div class="board" id="board-img" hidden></div>
     <img src="img/pieza_roja.png" alt="" hidden="true" id="red-piece" />
     <img src="img/pieza_azul.png" alt="" hidden="true" id="blue-piece" />
     <img src="img/pieza_amarilla.png" alt="" hidden="true" id="yellow-piece" />
     <img src="img/pieza_negra.png" alt="" hidden="true" id="green-piece" />
-    <div class="container">
+    <img src="img/pieza_rosa.png" alt="" hidden="true" id="pink-piece" />
+    <div class="container" id="container-board" hidden>
       <canvas id="canvas"></canvas>
     </div>
     <div class="info-box">
       <div class="form-group">
         <input type="text" class="form-input form-control" id="name" placeholder="Ingresa tu nombre" required/>
-        <button class="btn btn-outline-light" id="start-btn">Unirse</button>
+        <button class="btn btn-outline-primary" id="start-btn">Unirse</button>
       </div>
     </div>
     <div id="players-box">
-      <h3>Jugadores Conectados:</h3>
+      <h3 id="texto-conectados" hidden>Jugadores Conectados:</h3>
       <br>
       <table id="players-table"></table>
     </div>
     <div id="current-player"></div>
     <button class="btn btn-success" id="roll-button" hidden>Tirar dado</button>
-    <div class="turno" id="turno_jugador">Avanzas: </div>
+    <div class="turno" id="turno_jugador" hidden></div>
     <button class="btn btn-success" id="restart-btn" hidden>Reiniciar Juego</button>
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/main.js"></script>
