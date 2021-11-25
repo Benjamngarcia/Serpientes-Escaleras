@@ -102,6 +102,7 @@ document.getElementById("start-btn").addEventListener("click", () => {
   const name = document.getElementById("name").value;
   document.getElementById("name").hidden = true;
   document.getElementById("start-btn").hidden = true;
+  document.getElementById("author_names").hidden = true;
   document.getElementById("board-img").hidden = false;
   document.getElementById("container-board").hidden = false;
   document.getElementById("roll-button").hidden = false;
